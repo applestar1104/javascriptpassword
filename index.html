@@ -1,0 +1,483 @@
+<!DOCTYPE HTML> 
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hack This Password | Secure Password Tools from Chicago Technology Group</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <!-- <script src="js/jquery-1.12.4.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- <script src="js/popper.min.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="js/tether.min.js"></script> -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+
+    <script src="js/simple-slider.min.js"></script>
+    <link href="css/simple-slider.css" rel="stylesheet" type="text/css" />
+    <script src="js/hsimp.min.js"></script>
+    <script src="js/generator.js"></script>
+
+    <style>
+        body {
+            background-color: #f7fbff; //wc #f2f9ff; //wc #EDF8F7;
+            margin: 0px;
+            padding: 0;
+        }
+        
+        .custom_header {
+            background-color: #FFF;
+        }
+        
+        .custom_body {
+            background-color: #f0f2f5; //wc #F6FBFB;
+        }
+        
+        #password_show {
+            font-size: 19px;
+            font-family: Calibri, Helvetica Neue, Helvetica, Arial, sans-serif;
+        }
+        
+        #my-input-slider {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+        
+        .form_label {
+            color: #60646e; //wc #8a8c91;
+            font-size: 14px;
+        }
+        
+        #lenghtcount {
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .span_pseudo,
+        .chiller_cb span:before,
+        .chiller_cb span:after {
+            content: "";
+            display: inline-block;
+            background: #fff;
+            width: 0;
+            height: 0.2rem;
+            position: absolute;
+            transform-origin: 0% 0%;
+        }
+        
+        .chiller_cb {
+            position: relative;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chiller_cb input {
+            display: none;
+        }
+        
+        .chiller_cb input:checked~span {
+            background: #426ba6; //wc #43a6a1;
+            border-color: #426ba6; //wc #43a6a1;
+        }
+        
+        .chiller_cb input:checked~span:before {
+            width: 14px;
+            height: 0.15rem;
+            transition: width 0.1s;
+            transition-delay: 0.3s;
+        }
+        
+        .chiller_cb input:checked~span:after {
+            width: 0.4rem;
+            height: 0.15rem;
+            transition: width 0.1s;
+            transition-delay: 0.2s;
+        }
+        
+        .chiller_cb label {
+            padding-left: 2rem;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            margin-bottom: 0;
+            color: #8a8c91;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        
+        .chiller_cb span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            position: absolute;
+            left: 0;
+            transition: all 0.2s;
+            z-index: 1;
+            box-sizing: content-box;
+            border-radius: 5px;
+        }
+        
+        .chiller_cb span:before {
+            transform: rotate(-55deg);
+            top: 13px;
+            left: 6px;
+        }
+        
+        .chiller_cb span:after {
+            transform: rotate(35deg);
+            bottom: 0.35rem;
+            left: 0.2rem;
+        }
+        
+        .password_check_input {
+            background-color: #FFF;
+            width: 100%;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: Calibri, Helvetica Neue, Helvetica, Arial, sans-serif;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+        
+        .password_check_input:focus {
+            outline: none;
+        }
+        
+        .strength_heading {
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .strength_alert {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .strength_paragrpagh {
+            color: #8a8c91;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        ul.hsimp-checks {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        ul.hsimp-checks li {
+            list-style: none;
+        }
+        
+        ul.hsimp-checks li h2 {
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        ul.hsimp-checks li p {
+            color: #8a8c91;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .disappear-memorable {
+            display: none !important;
+
+        }
+        .appear-memorable {
+            display: flex !important;
+        }
+
+
+        .memorable  {
+            margin-bottom: 7px;
+        }
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    &nbsp;<br/> &nbsp;
+    <br/>
+
+    <div class="text-center"><img src="img/hackthispassword_logo_v01_450w.png"></div>
+
+    <!--
+*****
+***** 
+***** 
+***** 
+***** password checker
+***** updated 11/4/2019
+***** 
+***** 
+-->
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 col-md-12 col-lg-7 m-auto">
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <h1><strong>how hackable is your password?</strong></h1>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h6 style="line-height:23px;">don't worry, passwords never leave your device</h6>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <input type="text" name="password" id="password_check" placeholder="Enter a password..." autocomplete="off" class="password_check_input">
+                        <div class="card" id="strength_meter" style="display:none;">
+                            <div class="card-body custom_body">
+                                <div class="row">
+                                    <div class="col-12 text-center">computers need less than</div>
+                                    <div class="col-12 text-center"><strong id="password-time" class="strength_heading hsimp-time" style="color:blue; font-size:18px;"></strong></div>
+                                    <div class="col-12 text-center">to hack this password</div>
+
+                                    <div class="col-12">
+                                        <hr />
+                                    </div>
+
+                                    <div class="col-12">
+                                        <strong class="strength_heading">Password strength:</strong>
+                                        <span class="strength_alert" id="strength_alert"></span>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <hr />
+                                    </div>
+
+                                    <div class="col-12"><strong class="strength_heading">Password composition</strong></div>
+                                    <div class="col-12 strength_paragrpagh">Make sure that your password is long enough and contains various types of characters.</div>
+                                    <div class="col-12 strength_paragrpagh mt-2" id="password_condition1"><span><i class="fas fa-minus"></i></span>&nbsp; At least 12 characters</div>
+                                    <div class="col-12 strength_paragrpagh" id="password_condition2"><span><i class="fas fa-minus"></i></span>&nbsp; Uppercase</div>
+                                    <div class="col-12 strength_paragrpagh" id="password_condition3"><span><i class="fas fa-minus"></i></span>&nbsp; Lowercase</div>
+                                    <div class="col-12 strength_paragrpagh" id="password_condition4"><span><i class="fas fa-minus"></i></span>&nbsp; Symbols (?#@...)</div>
+                                    <div class="col-12 strength_paragrpagh" id="password_condition5"><span><i class="fas fa-minus"></i></span>&nbsp; Numbers</div>
+                                    <div class="col-12 mt-2">
+                                        <ul id="password-checks" class="hsimp-checks"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+*****
+***** 
+***** 
+***** 
+***** password generator
+***** updated 11/4/2019
+***** 
+***** 
+-->
+    <div class="container animated fadeIn">
+        <div class="row ">
+            <div class="col-12 col-md-12 col-lg-9 m-auto">
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <h1><strong>secure password generator</strong></h1>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h6 style="line-height:23px;">instant difficult-to-hack passwords</h6>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header custom_header">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 text-center text-md-left">
+                                        <div id="password_show"></div>
+                                        <div id="password_strength" class="form_label mt-2" style="font-size:11px;"></div>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-center text-md-right mt-4 mt-md-0">
+                                        <button type="button" id="myElem" class="btn btn-outline-dark" onClick="copyFunction();">Copy</button>
+                                        <button type="button" id="myElem1" class="btn btn-success" style="display:none;" disabled>Copied</button> &nbsp;&nbsp;
+                                        <button type="button" class="btn btn-primary" id="generate" onClick="generatePass();">Generate Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body custom_body">
+                                <div class="row pass_slider  animated fadeIn">
+                                    <div class="col-12"><span class="form_label">Password length: <span id="lenghtcount">12</span> characters</span>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <input id="length_chars_select" type="range" data-slider-highlight="true" data-slider="true" value="12" data-slider-range="8,60" data-slider-step="1" disabled="true">
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12 col-md-2">
+                                        <div class="chiller_cb">
+                                            <input id="alphaupper_chars_checkbox" name="alphaupper_chars_checkbox" onChange="checkPass();" type="checkbox">
+                                            <label for="alphaupper_chars_checkbox">Uppercase</label>
+                                            <span></span> </div>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="chiller_cb">
+                                            <input id="alphalower_chars_checkbox" name="alphalower_chars_checkbox" onChange="checkPass();" type="checkbox">
+                                            <label for="alphalower_chars_checkbox">Lowercase</label>
+                                            <span></span> </div>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="chiller_cb">
+                                            <input id="num_chars_checkbox" name="num_chars_checkbox" onChange="checkPass();" type="checkbox">
+                                            <label for="num_chars_checkbox">Digits</label>
+                                            <span></span> </div>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="chiller_cb">
+                                            <input id="special_chars_checkbox" name="special_chars_checkbox" onChange="checkPass();" type="checkbox">
+                                            <label for="special_chars_checkbox">Symbols</label>
+                                            <span></span> </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="chiller_cb">
+                                            <input id="ambiguous_chars_checkbox" name="ambiguous_chars_checkbox" onChange="checkPass();" type="checkbox">
+                                            <label for="ambiguous_chars_checkbox">Ambiguous Characters</label>
+                                            <span></span> </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="chiller_cb">
+                                            <input id="memorable_chars_checkbox" name="memorable_chars_checkbox" onChange="toggleMemorable();" type="checkbox" checked >
+                                            <label for="memorable_chars_checkbox">Memorable</label>
+                                            <span></span> </div>
+                                    </div>                                    
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+    <script>
+        $("#length_chars_select").bind("slider:changed", function(event, data) {
+            $('#lenghtcount').html(data.value);
+            generatePass();
+        });
+    </script>
+    <script>
+        (function(doc) {
+            var passwordInput = doc.getElementById("password_check"),
+                timeDiv = doc.getElementById("password-time"),
+                checksList = doc.getElementById("password-checks");
+
+            // Code to render the time returned by HSIMP
+            var renderTime = function(time, input) {
+                timeDiv.innerHTML = time || "";
+            };
+
+            // Code to output the checks returned by HSIMP
+            var renderChecks = function(checks, input) {
+                checksList.innerHTML = "";
+
+                for (var i = 0, l = checks.length; i < l; i++) {
+                    var li = doc.createElement("li"),
+                        title = doc.createElement("h2"),
+                        message = doc.createElement("p");
+
+                    title.innerHTML = checks[i].name;
+                    li.appendChild(title);
+
+                    message.innerHTML = checks[i].message;
+                    li.appendChild(message);
+
+                    checksList.appendChild(li);
+                }
+            };
+
+            // Setup the HSIMP object
+            var attachTo = hsimp({
+                options: {
+                    calculationsPerSecond: 10e9, // 10 billion calculations per second
+                    good: 31557600e9, // 1 billion years
+                    ok: 31557600e3 // 1 thousand years
+                },
+                outputTime: renderTime,
+                outputChecks: renderChecks
+            });
+            // Run the HSIMP
+            attachTo(passwordInput);
+        }(this.document));
+    </script>
+
+
+    <input type="hidden" id="copydataaddress" /> &nbsp;
+
+    <br/> &nbsp;
+    <br/> &nbsp;
+    <br/> &nbsp;
+    <br/> &nbsp;
+    <br/> &nbsp;
+    <br/>
+    <div class="col-md-12 animated fadeIn" id="strong-password" >
+        <div class="col-md-4 offset-4">
+            <div class="text-center h4">
+                <a href="https://xkpasswd.net/s/"><b>If you want a stronger security password, please go to here.</b><br/> 
+                </a>
+            </div>
+            <div class="text-center"><a href="https://xkpasswd.net/s/"><img src="img/lock.png"></a></div>
+        </div>        
+    </div>
+    <br/>
+
+    <div class="text-center">
+        this is a free service from<br/>
+        <a href="https://www.chicagotg.com"><img src="img/chicagotg_logo_300w.png" alt="chicago technology group"></a>
+    </div>
+
+    &nbsp;<br/> &nbsp;
+    <br/> &nbsp;
+    <br/>
+
+    <div class="text-center">
+        <small>&copy; copyright 2019 chicago technology group llc. all rights reserved.</small><br/>
+        <small>some of the features are from the open source hsimp (thank you, hsimp!)</small>
+    </div>
+
+    &nbsp;<br/> &nbsp;
+    <br/> &nbsp;
+    <br/>
+
+
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5dc19c9b8ad3930012cf9b91&product=sticky-share-buttons' async='async'></script>
+    
+
+
+</body>
+
+</html>
